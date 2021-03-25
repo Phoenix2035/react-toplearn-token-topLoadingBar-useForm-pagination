@@ -1,27 +1,34 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
+import { registerUser } from "../../services/userServices";
+
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useForm } from "react-hook-form"
 
 const Register = () => {
-    const [fullname, setFullname] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const { register, handleSubmit } = useForm()
+    const inputFocus = useRef()
 
-    const reset = () => {
-        setFullname("");
-        setEmail("");
-        setPassword("");
-    };
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        // alert("Submited");
-        const user = {
-            fullname,
-            email,
-            password
-        };
-        console.log(user);
-        reset();
-    };
+    const onSubmit = async (data, e) => {
+        try {
+            const { status } = await registerUser(data)
+            console.log(data);
+            if (status === 200) {
+                toast.success("کاربر با موفقیت ساخته شد", { position: "top-right", closeOnClick: true })
+                inputFocus.current.focus()
+                e.target.reset()
+            }
+
+        } catch (error) {
+            toast.error("مشکلی پیش آمده", {
+                position: "top-right",
+                closeOnClick: true
+            })
+        }
+    }
+
+
 
     return (
         <main className="client-page">
@@ -31,7 +38,7 @@ const Register = () => {
                 </header>
 
                 <div className="form-layer">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="input-group">
                             <span className="input-group-addon" id="username">
                                 <i className="zmdi zmdi-account"></i>
@@ -40,9 +47,11 @@ const Register = () => {
                                 type="text"
                                 className="form-control"
                                 placeholder="نام و نام خانوادگی"
-                                aria-describedby="username"
-                                value={fullname}
-                                onChange={e => setFullname(e.target.value)}
+                                ref={(e) => {
+                                    register(e)
+                                    inputFocus.current = e
+                                }}
+                                name="fullname"
                             />
                         </div>
 
@@ -57,9 +66,8 @@ const Register = () => {
                                 type="text"
                                 className="form-control"
                                 placeholder="ایمیل"
-                                aria-describedby="email-address"
-                                value={email}
-                                onChange={e => setEmail(e.target.value)}
+                                ref={register}
+                                name="email"
                             />
                         </div>
 
@@ -70,16 +78,16 @@ const Register = () => {
                             <input
                                 type="password"
                                 className="form-control"
-                                placeholder="رمز عبور "
-                                aria-describedby="password"
-                                value={password}
-                                onChange={e => setPassword(e.target.value)}
+                                placeholder="رمز عبور"
+                                ref={register}
+                                name="password"
                             />
                         </div>
 
                         <div className="accept-rules">
                             <label>
-                                <input type="checkbox" name="" /> قوانین و
+                                <input type="checkbox"
+                                /> قوانین و
                                 مقررات سایت را میپذیرم{" "}
                             </label>
                         </div>
