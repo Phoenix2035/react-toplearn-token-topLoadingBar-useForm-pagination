@@ -1,29 +1,35 @@
-import React, { Fragment } from "react";
-import { withRouter } from "react-router-dom";
+import React, {Fragment} from "react";
+import {withRouter} from "react-router-dom";
 
 import TopNav from "./../Navs/TopNav";
 import Header from "./../common/Header";
 import MainNav from "./../Navs/MainNav";
 import Footer from "./../common/Footer";
+import {Helmet} from "react-helmet";
 
 const MainLayout = props => {
-    const { pathname } = props.location;
+    const {pathname} = props.location;
     return (
         <Fragment>
+
+            <Helmet>
+                <title>صفحه اصلی سایت</title>
+            </Helmet>
+
             <div className="landing-layer">
                 <div className="container">
-                    <TopNav />
-                    {pathname === "/" ? <Header /> : null}
+                    <TopNav/>
+                    {pathname === "/" ? <Header/> : null}
                 </div>
             </div>
 
-            <MainNav />
+            <MainNav/>
 
             <main id="home-page">
                 <div className="container">{props.children} </div>
             </main>
 
-            <Footer />
+            <Footer/>
         </Fragment>
     );
 };

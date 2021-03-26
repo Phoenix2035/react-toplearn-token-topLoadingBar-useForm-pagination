@@ -1,8 +1,8 @@
 @font-face {
     font-family: "BYekan";
     src: url("../fonts/BYekan-webfont.eot") format("eot"),
-        url("../fonts/BYekan-webfont.woff") format("woff"),
-        url("../fonts/BYekan-webfont.ttf") format("truetype");
+    url("../fonts/BYekan-webfont.woff") format("woff"),
+    url("../fonts/BYekan-webfont.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -218,39 +218,39 @@ form button {
     position: relative;
 }
 
-.main-menu nav>ul>li {
+.main-menu nav > ul > li {
     float: right;
     padding: 15px 0;
     position: relative;
 }
 
-.main-menu nav>ul>li:first-child a {
+.main-menu nav > ul > li:first-child a {
     padding-right: 0;
 }
 
-.main-menu nav>span {
+.main-menu nav > span {
     font-size: 36px;
     color: #fff;
     display: none;
 }
 
-.main-menu nav>span:hover {
+.main-menu nav > span:hover {
     color: #0c740a;
     cursor: pointer;
 }
 
-.main-menu nav>ul>li>a {
+.main-menu nav > ul > li > a {
     color: #fff;
     padding: 0 15px;
     border-left: 1px solid #20991d;
     font-size: 16px;
 }
 
-.main-menu nav>ul>li:last-child>a {
+.main-menu nav > ul > li:last-child > a {
     border-left: 0;
 }
 
-.main-menu nav>ul>li>ul {
+.main-menu nav > ul > li > ul {
     position: absolute;
     top: 50px;
     right: 0;
@@ -263,18 +263,18 @@ form button {
     z-index: 1000;
 }
 
-.main-menu nav>ul>li>ul>li {
+.main-menu nav > ul > li > ul > li {
     width: 100%;
 }
 
-.main-menu nav>ul>li>ul>li>a {
+.main-menu nav > ul > li > ul > li > a {
     padding: 6px 15px 6px 10px;
     line-height: 22px;
     color: #fff;
 }
 
-.main-menu nav>ul>li:hover>a:hover,
-.main-menu nav>ul>li>ul>li>a:hover {
+.main-menu nav > ul > li:hover > a:hover,
+.main-menu nav > ul > li > ul > li > a:hover {
     color: #0c740a;
 }
 
@@ -531,7 +531,7 @@ main#home-page {
     color: #26292c;
 }
 
-.user-account aside>section,
+.user-account aside > section,
 .user-account .avatar-layer {
     border: 1px solid #ecf1f8;
     margin-bottom: 25px;
@@ -607,21 +607,21 @@ main#home-page {
     display: block;
 }
 
-.user-account aside>section header {
+.user-account aside > section header {
     padding: 5px 15px;
     border-bottom: 1px solid #ecf1f8;
 }
 
-.user-account aside>section header h3 {
+.user-account aside > section header h3 {
     font-size: 15px;
     line-height: 35px;
 }
 
-.user-account aside>section .inner {
+.user-account aside > section .inner {
     padding: 10px 15px;
 }
 
-.user-account aside>section .inner ul li a {
+.user-account aside > section .inner ul li a {
     display: block;
     font-size: 14px;
     line-height: 25px;
@@ -629,7 +629,7 @@ main#home-page {
     color: #222;
 }
 
-.user-account aside>section .inner ul li a:hover {
+.user-account aside > section .inner ul li a:hover {
     color: #2aaf27;
 }
 
@@ -639,12 +639,12 @@ main#home-page {
     background-color: #fff;
 }
 
-.user-account .user-account-content>header {
+.user-account .user-account-content > header {
     padding: 5px 15px;
     border-bottom: 1px solid #ecf1f8;
 }
 
-.user-account .user-account-content>header h1 {
+.user-account .user-account-content > header h1 {
     font-size: 15px;
     line-height: 35px;
 }
@@ -721,7 +721,7 @@ main#home-page {
     margin-left: 25px;
 }
 
-.term-content>header,
+.term-content > header,
 .term-content aside .statistics,
 .term-content aside .teacher-info,
 .term-content aside .term-info,
@@ -739,7 +739,7 @@ main#home-page {
     background-color: #fff;
 }
 
-.term-content>header h1 {
+.term-content > header h1 {
     width: 100%;
     font-size: 18px;
     line-height: 25px;
@@ -770,7 +770,7 @@ main#home-page {
     font-style: normal;
 }
 
-.term-content aside .statistics>a {
+.term-content aside .statistics > a {
     width: 100%;
     border-radius: 5px;
     line-height: 48px;
@@ -1036,7 +1036,7 @@ main#home-page {
     position: relative;
 }
 
-.term-categories>.top-bar>header {
+.term-categories > .top-bar > header {
     position: relative;
     height: 45px;
     margin-bottom: 20px;
@@ -1044,16 +1044,16 @@ main#home-page {
     border-bottom: 1px solid #ebebeb;
 }
 
-.term-categories>.top-bar>header h1 {
+.term-categories > .top-bar > header h1 {
     font-size: 20px;
     line-height: 25px;
 }
 
-.term-categories>.top-bar>header h1 span {
+.term-categories > .top-bar > header h1 span {
     color: #2aaf27;
 }
 
-.term-categories>.top-bar>header>span {
+.term-categories > .top-bar > header > span {
     position: absolute;
     left: 0;
     top: 0;
@@ -1065,7 +1065,7 @@ main#home-page {
     background-color: #f2f2f2;
 }
 
-.term-categories>.top-bar form {
+.term-categories > .top-bar form {
     position: relative;
     width: 100%;
     height: 40px;
@@ -1073,7 +1073,7 @@ main#home-page {
     overflow: hidden;
 }
 
-.term-categories>.top-bar form input {
+.term-categories > .top-bar form input {
     position: relative;
     width: 100%;
     height: 40px;
@@ -1083,7 +1083,7 @@ main#home-page {
     line-height: 40px;
 }
 
-.term-categories>.top-bar form button {
+.term-categories > .top-bar form button {
     background-color: transparent;
     width: 40px;
     height: 40px;
@@ -1097,14 +1097,14 @@ main#home-page {
     text-align: right;
 }
 
-.term-categories>.top-bar .select-ddl {
+.term-categories > .top-bar .select-ddl {
     width: 100%;
     background-color: #fff;
     border: 1px solid #e8e8e8;
     position: relative;
 }
 
-.term-categories>.top-bar .select-ddl select {
+.term-categories > .top-bar .select-ddl select {
     width: 100%;
     padding: 0 15px 0 0;
     font-size: 14px;
@@ -1149,7 +1149,7 @@ main#home-page {
     cursor: pointer;
 }
 
-.term-categories .switch-field input:checked+label {
+.term-categories .switch-field input:checked + label {
     background-color: #2aaf27;
     color: #fff;
 }
@@ -1208,12 +1208,24 @@ main#home-page {
     margin-left: 3px;
 }
 
+.input-handler {
+    position: relative;
+    margin-bottom: 2rem ;
+}
+
+.input-handler small {
+    position: absolute;
+    right: 5.5rem;
+    top: 5.5rem;
+    color: #ef5350;
+}
+
 @media screen and (max-width: 991px) {
-    .main-menu nav>span {
+    .main-menu nav > span {
         display: block;
     }
 
-    .main-menu nav>ul {
+    .main-menu nav > ul {
         display: none;
     }
 
@@ -1226,11 +1238,11 @@ main#home-page {
         height: 44px;
     }
 
-    .main-menu nav>span {
+    .main-menu nav > span {
         display: block;
     }
 
-    .main-menu nav>ul {
+    .main-menu nav > ul {
         position: absolute;
         min-width: 280px;
         white-space: nowrap;
@@ -1243,22 +1255,22 @@ main#home-page {
         display: none;
     }
 
-    .main-menu nav>ul>li {
+    .main-menu nav > ul > li {
         width: 100%;
         float: none;
         padding: 5px 0;
         position: relative;
     }
 
-    .main-menu nav>ul>li>a {
+    .main-menu nav > ul > li > a {
         border-left: 0;
     }
 
-    .main-menu nav>ul>li:nth-child(1) a {
+    .main-menu nav > ul > li:nth-child(1) a {
         padding-right: 15px;
     }
 
-    .main-menu nav>ul>li .caret-icon {
+    .main-menu nav > ul > li .caret-icon {
         position: absolute;
         left: 5px;
         top: 0;
@@ -1268,11 +1280,11 @@ main#home-page {
         font-size: 22px;
     }
 
-    .main-menu nav>ul>li ul {
+    .main-menu nav > ul > li ul {
         position: static;
     }
 
-    .main-menu nav>ul>li>ul>li>a {
+    .main-menu nav > ul > li > ul > li > a {
         display: block;
         width: 100%;
     }
@@ -1285,7 +1297,7 @@ main#home-page {
         margin-top: 10px;
     }
 
-    .term-categories>.top-bar .select-ddl {
+    .term-categories > .top-bar .select-ddl {
         margin-top: 10px;
     }
 }
@@ -1364,7 +1376,7 @@ main#home-page {
         padding-bottom: 30px;
     }
 
-    .term-categories>.top-bar>header>span {
+    .term-categories > .top-bar > header > span {
         display: none;
     }
 }
