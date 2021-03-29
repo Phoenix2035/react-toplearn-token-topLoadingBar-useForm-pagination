@@ -1,14 +1,17 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import {BrowserRouter} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 
-import Toplearn from "./Toplearn";
+import TopLearn from "./Toplearn";
+
 
 const App = () => {
+
+
     return (
         <BrowserRouter>
-            <Toplearn />
-            <ToastContainer />
+            <TopLearn/>
+            <ToastContainer/>
         </BrowserRouter>
     );
 };

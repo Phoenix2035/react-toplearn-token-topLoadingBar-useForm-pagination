@@ -1,7 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import Pagination from "../common/Pagination";
+import {useSelector} from "react-redux";
+import {paginate} from "../../utils/paginate";
+import Course from "./Course";
 
 const Archive = () => {
+
+    const [perPage] = useState(4)
+    const [currentPage, setCurrentPage] = useState(1)
+
+    const courses = useSelector(state => state.courses)
+
+
+    const handlePageChange = page => {
+        setCurrentPage(page)
+    }
+
+    const archiveCourses = paginate(courses, currentPage, perPage)
+
     return (
         <section className="term-categories">
             <div className="top-bar">
@@ -10,7 +26,7 @@ const Archive = () => {
                         {" "}
                         دوره های <span> برنامه نویسی وب </span>{" "}
                     </h1>{" "}
-                    <span> 123 دوره </span>
+                    <span>{courses.length} دوره</span>
                 </header>
 
                 <div className="row">
@@ -57,10 +73,10 @@ const Archive = () => {
                     <div className="col-md-4 col-sm-6 col-xs-12 pull-left">
                         <div className="select-ddl">
                             <select>
-                                <option> مرتب سازی </option>
-                                <option> قیمت </option>
-                                <option> مدرت زمان دوره </option>
-                                <option> تاریخ انتشار </option>
+                                <option> مرتب سازی</option>
+                                <option> قیمت</option>
+                                <option> مدرت زمان دوره</option>
+                                <option> تاریخ انتشار</option>
                             </select>
                         </div>
                     </div>
@@ -76,51 +92,51 @@ const Archive = () => {
                         <div className="inner">
                             <ul>
                                 <li>
-                                    <input type="checkbox" name="" id="cat-1" />
+                                    <input type="checkbox" name="" id="cat-1"/>
                                     <label for="cat-1"> برنامه نویسی وب </label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="" id="cat-2" />
+                                    <input type="checkbox" name="" id="cat-2"/>
                                     <label for="cat-2">
                                         {" "}
                                         برنامه نویسی موبایل{" "}
                                     </label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="" id="cat-3" />
+                                    <input type="checkbox" name="" id="cat-3"/>
                                     <label for="cat-3"> برنامه نویسی وب </label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="" id="cat-4" />
+                                    <input type="checkbox" name="" id="cat-4"/>
                                     <label for="cat-4">
                                         {" "}
                                         برنامه نویسی موبایل{" "}
                                     </label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="" id="cat-5" />
+                                    <input type="checkbox" name="" id="cat-5"/>
                                     <label for="cat-5"> برنامه نویسی وب </label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="" id="cat-6" />
+                                    <input type="checkbox" name="" id="cat-6"/>
                                     <label for="cat-6">
                                         {" "}
                                         برنامه نویسی موبایل{" "}
                                     </label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="" id="cat-7" />
+                                    <input type="checkbox" name="" id="cat-7"/>
                                     <label for="cat-7"> برنامه نویسی وب </label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="" id="cat-8" />
+                                    <input type="checkbox" name="" id="cat-8"/>
                                     <label for="cat-8">
                                         {" "}
                                         برنامه نویسی موبایل{" "}
                                     </label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="" id="cat-9" />
+                                    <input type="checkbox" name="" id="cat-9"/>
                                     <label for="cat-9"> برنامه نویسی وب </label>
                                 </li>
                                 <li>
@@ -142,152 +158,13 @@ const Archive = () => {
                 <div className="col-lg-9 col-md-8 col-sm-12 col-xs-12">
                     <section className="terms-items">
                         <div className="row">
-                            <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 term-col">
-                                <article>
-                                    <a href="" className="img-layer">
-                                        <img src="images/pic/1.jpg" />
-                                    </a>
-                                    <h2>
-                                        <a href="">
-                                            {" "}
-                                            آموزش متریال دیاین در زامارین{" "}
-                                        </a>
-                                    </h2>
-                                    <span> رایگان </span>
-                                    <i>1:52:32</i>
-                                </article>
-                            </div>
-
-                            <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 term-col">
-                                <article>
-                                    <a href="" className="img-layer">
-                                        <img src="images/pic/2.jpg" />
-                                    </a>
-                                    <h2>
-                                        <a href="">
-                                            {" "}
-                                            آموزش متریال دیاین در زامارین{" "}
-                                        </a>
-                                    </h2>
-                                    <span> رایگان </span>
-                                    <i>1:52:32</i>
-                                </article>
-                            </div>
-
-                            <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 term-col">
-                                <article>
-                                    <a href="" className="img-layer">
-                                        <img src="images/pic/3.jpg" />
-                                    </a>
-                                    <h2>
-                                        <a href="">
-                                            {" "}
-                                            آموزش متریال دیاین در زامارین{" "}
-                                        </a>
-                                    </h2>
-                                    <span> 150.000 تومان </span>
-                                    <i>1:52:32</i>
-                                </article>
-                            </div>
-
-                            <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 term-col">
-                                <article>
-                                    <a href="" className="img-layer">
-                                        <img src="images/pic/4.jpg" />
-                                    </a>
-                                    <h2>
-                                        <a href="">
-                                            {" "}
-                                            آموزش متریال دیاین در زامارین{" "}
-                                        </a>
-                                    </h2>
-                                    <span> رایگان </span>
-                                    <i>1:52:32</i>
-                                </article>
-                            </div>
-
-                            <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 term-col">
-                                <article>
-                                    <a href="" className="img-layer">
-                                        <img src="images/pic/5.jpg" />
-                                    </a>
-                                    <h2>
-                                        <a href="">
-                                            {" "}
-                                            آموزش متریال دیاین در زامارین{" "}
-                                        </a>
-                                    </h2>
-                                    <span> 15.000 تومان </span>
-                                    <i>1:52:32</i>
-                                </article>
-                            </div>
-
-                            <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 term-col">
-                                <article>
-                                    <a href="" className="img-layer">
-                                        <img src="images/pic/6.jpg" />
-                                    </a>
-                                    <h2>
-                                        <a href="">
-                                            {" "}
-                                            آموزش متریال دیاین در زامارین{" "}
-                                        </a>
-                                    </h2>
-                                    <span> رایگان </span>
-                                    <i>1:52:32</i>
-                                </article>
-                            </div>
-
-                            <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 term-col">
-                                <article>
-                                    <a href="" className="img-layer">
-                                        <img src="images/pic/7.jpg" />
-                                    </a>
-                                    <h2>
-                                        <a href="">
-                                            {" "}
-                                            آموزش متریال دیاین در زامارین{" "}
-                                        </a>
-                                    </h2>
-                                    <span> 20.000 تومان </span>
-                                    <i>1:52:32</i>
-                                </article>
-                            </div>
-
-                            <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 term-col">
-                                <article>
-                                    <a href="" className="img-layer">
-                                        <img src="images/pic/8.jpg" />
-                                    </a>
-                                    <h2>
-                                        <a href="">
-                                            {" "}
-                                            آموزش متریال دیاین در زامارین{" "}
-                                        </a>
-                                    </h2>
-                                    <span> 75.000 تومان </span>
-                                    <i>1:52:32</i>
-                                </article>
-                            </div>
-
-                            <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12 term-col">
-                                <article>
-                                    <a href="" className="img-layer">
-                                        <img src="images/pic/4.jpg" />
-                                    </a>
-                                    <h2>
-                                        <a href="">
-                                            {" "}
-                                            آموزش متریال دیاین در زامارین{" "}
-                                        </a>
-                                    </h2>
-                                    <span> 75.000 تومان </span>
-                                    <i>1:52:32</i>
-                                </article>
-                            </div>
+                            <Course courses={archiveCourses}/>
                         </div>
 
-                        <Pagination />
+                        <Pagination totalCourses={courses.length}
+                                    currentPage={currentPage}
+                                    perPage={perPage}
+                                    onPageChange={handlePageChange}/>
                     </section>
                 </div>
             </div>
