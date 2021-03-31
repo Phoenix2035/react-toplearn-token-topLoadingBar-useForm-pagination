@@ -5,16 +5,21 @@ import {toast} from "react-toastify";
 import {useForm} from "react-hook-form";
 import {Link, useHistory} from "react-router-dom";
 import {Helmet} from "react-helmet";
+import {useDispatch} from "react-redux";
+import {hideLoading, showLoading} from "react-redux-loading-bar";
 
 const Register = () => {
     const history = useHistory()
+    const dispatch = useDispatch()
     const {register, handleSubmit, errors} = useForm()
 
     const onSubmit = async (data, e) => {
         try {
+            dispatch(showLoading())
             const {status} = await registerUser(data)
             if (status === 201) {
                 toast.success("کاربر با موفقیت ساخته شد", {position: "top-right", closeOnClick: true})
+                dispatch(hideLoading())
                 history.push("/login")
                 e.target.reset()
             }
@@ -24,6 +29,7 @@ const Register = () => {
                 position: "top-right",
                 closeOnClick: true
             })
+            dispatch(hideLoading())
         }
     }
 

@@ -1,32 +1,38 @@
-import React, {useState} from "react";
+import React from "react";
 import {loginUser} from "../../services/userServices";
 
 import {toast} from "react-toastify";
 import {useForm} from "react-hook-form";
 import {Link, useHistory} from "react-router-dom";
 import {Helmet} from "react-helmet";
+import {useDispatch} from "react-redux";
+import {setUser} from "../../redux/models/user.reducer";
+import {decodeToken} from "../../utils/decodeToken";
+import {hideLoading, showLoading} from "react-redux-loading-bar";
 
 function Login() {
-    const [isLoading, setIsLoading] = useState(false)
 
     const {register, handleSubmit, errors} = useForm();
     const history = useHistory()
 
+    const dispatch = useDispatch()
+
 
     const onLogin = async (dataInputs, e) => {
         try {
-            setIsLoading(true)
+            dispatch(showLoading())
             const {data, status} = await loginUser(dataInputs)
             if (status === 200) {
                 toast.success("ورود موفقیت آمیز بود", {position: "top-right", closeOnClick: true})
                 localStorage.setItem("token", data.token)
-                setIsLoading(false)
+                dispatch(setUser(decodeToken(data.token).payload.user))
+                dispatch(hideLoading())
                 history.replace("/")
                 e.target.reset()
             }
 
         } catch (error) {
-            setIsLoading(false);
+            dispatch(hideLoading())
             toast.error("مشکلی پیش آمده", {
                 position: "top-right",
                 closeOnClick: true
@@ -34,9 +40,6 @@ function Login() {
         }
     }
 
-    if (isLoading) {
-        return <div>Loading...</div>
-    }
 
     return (
         <main className="client-page">

@@ -6,6 +6,7 @@ import Header from "./../common/Header";
 import MainNav from "./../Navs/MainNav";
 import Footer from "./../common/Footer";
 import {Helmet} from "react-helmet";
+import LoadingBar from "react-redux-loading-bar";
 
 const MainLayout = props => {
     const {pathname} = props.location;
@@ -16,7 +17,9 @@ const MainLayout = props => {
                 <title>صفحه اصلی سایت</title>
             </Helmet>
 
+
             <div className="landing-layer">
+                <LoadingBar style={{backgroundColor: "blue", height: "10px"}}/>
                 <div className="container">
                     <TopNav/>
                     {pathname === "/" ? <Header/> : null}

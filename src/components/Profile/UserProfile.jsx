@@ -1,6 +1,9 @@
 import React from "react";
+import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 const UserProfile = () => {
+    const user = useSelector(state => state.user)
     return (
         <div className="user-account">
             <div className="row">
@@ -11,10 +14,10 @@ const UserProfile = () => {
                                 <a href="" className="change-image">
                                     <i className="zmdi zmdi-edit"></i>
                                 </a>
-                                <img src="images/pic/avatar.jpg" />
+                                <img src="images/pic/avatar.jpg"/>
                             </div>
                             <div className="detail">
-                                <span> یونس قربانی </span>
+                                <span>{user.fullname}</span>
                                 <span> عضویت : 01/01/1395 </span>
                             </div>
                         </div>
@@ -25,20 +28,9 @@ const UserProfile = () => {
                             </header>
                             <div className="inner">
                                 <ul>
+
                                     <li>
-                                        <a href=""> مشاهده حساب کابری </a>
-                                    </li>
-                                    <li>
-                                        <a href=""> ویرایش حساب کابری </a>
-                                    </li>
-                                    <li>
-                                        <a href=""> تغییر رمز عبور </a>
-                                    </li>
-                                    <li>
-                                        <a href=""> تنظیمات حساب کاربری </a>
-                                    </li>
-                                    <li>
-                                        <a href=""> خروج از حساب کاربری </a>
+                                        <Link to="/logout"> خروج از حساب کاربری </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -57,7 +49,7 @@ const UserProfile = () => {
                                     <li>
                                         {" "}
                                         <i className="zmdi zmdi-account"></i>{" "}
-                                        نام و نام خانوادگی : یونس قربانی{" "}
+                                        نام و نام خانوادگی : {user.fullname}{" "}
                                     </li>
                                     <li>
                                         {" "}
@@ -67,7 +59,7 @@ const UserProfile = () => {
                                     <li>
                                         {" "}
                                         <i className="zmdi zmdi-email"></i>{" "}
-                                        ایمیل : uns@gmail.com{" "}
+                                        ایمیل : {user.email}{" "}
                                     </li>
                                     <li>
                                         {" "}

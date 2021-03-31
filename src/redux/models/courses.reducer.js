@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getCourses} from "../../services/courseServices";
+import http from "../../services/httpService";
+import config from "../../services/config.json";
 
 const CoursesReducer = createSlice({
     name: "courses",
@@ -13,8 +14,8 @@ const CoursesReducer = createSlice({
 
 
 export const getAllCourses = () => async dispatch => {
-    const {data} = await getCourses()
-    dispatch(setCourses(data.courses))
+    const {data} = await http.get(`${config.toplearnapi}/api/courses`)
+    await dispatch(setCourses(data.courses))
 }
 
 export const {setCourses} = CoursesReducer.actions
