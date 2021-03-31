@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import ShowImage from "../common/ShowImage";
 
 const Course = ({courses}) => {
     return (
@@ -14,7 +15,7 @@ const Course = ({courses}) => {
                         <div key={item._id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12 term-col">
                             <article>
                                 <Link to={`/course/${item._id}`} className="img-layer">
-                                    <img src={`https://toplearnapi.ghorbany.dev/${item.imageUrl}`}/>
+                                    <ShowImage image={item.imageUrl}/>
                                 </Link>
                                 <h2>
                                     <Link to={`/course/${item._id}`}>{item.title}</Link>
