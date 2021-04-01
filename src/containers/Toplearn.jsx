@@ -14,11 +14,11 @@ import {getAllCourses} from "../redux/models/courses.reducer";
 import {paginate} from "../utils/paginate";
 import {clearUser, setUser} from "../redux/models/user.reducer";
 import Logout from "../components/Login/Logout";
-import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import PrivateLayout from "../components/Layouts/PrivateLayout";
 import {isEmpty} from "lodash";
 import {Redirect} from "react-router";
 import Dashboard from "../components/Admin/Dashboard";
+import CourseTable from "../components/Admin/CourseTable";
 
 
 const TopLearn = () => {
@@ -52,13 +52,17 @@ const TopLearn = () => {
         <Switch>
             <Route path={["/dashboard"]}>
                 <PrivateLayout>
+                    <Route path="/dashboard/courses"
+                           render={() => !isEmpty(user) && user.isAdmin ? (<CourseTable courses={courses}/>) : (
+                               <Redirect to="/"/>)}/>
+
                     <Route exaxt path="/dashboard"
                            render={() => !isEmpty(user) && user.isAdmin ? (<Dashboard courses={courses}/>) :
                                (<Redirect to="/"/>)}/>
                 </PrivateLayout>
             </Route>
 
-            <Route path={["/"]}>
+            <Route path={["/", "/login", "/archive", "/user-profile"]}>
                 <MainLayout>
                     <Switch>
                         <Route path="/login" component={Login}/>
@@ -66,7 +70,7 @@ const TopLearn = () => {
                         <Route path="/register" component={Register}/>
                         <Route path="/archive" component={Archive}/>
                         <Route path="/course/:id" component={SingleCourse}/>
-                        <PrivateRoute path="/user-profile" component={UserProfile}/>
+                        <Route path="/user-profile" component={UserProfile}/>
                         <Route path="/" exact
                                render={() => indexCourses.length > 0 ? (<Course courses={indexCourses}/>) : (
                                    <h2 style={{textAlign: "center", margin: "2em"}}>هیچ دوره ای جهت نمایش وجود

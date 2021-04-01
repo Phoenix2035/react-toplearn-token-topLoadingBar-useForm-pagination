@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-function Dashboard({courses}) {
+const Dashboard = ({courses}) => {
     return (
         <div className="container-fluid" style={{marginTop: "5em"}}>
             <div className="row">
@@ -9,7 +9,7 @@ function Dashboard({courses}) {
                         <div className="panel-heading">
                             <div className="row">
                                 <div className="col-xs-3">
-                                    <i className="fa fa-graduation-cap fa-5x"/>
+                                    <i className="fa fa-graduation-cap fa-5x"></i>
                                 </div>
                                 <div className="col-xs-9 text-left">
                                     <div className="huge">{courses.length}</div>
@@ -21,12 +21,12 @@ function Dashboard({courses}) {
                 </div>
             </div>
             <div className="row">
-                <div className="alert alert-info text-center">
-                    به داشبورد خوش آمدید
+                <div className="alert-info alert text-center">
+                    به داشبورد بسیار ساده خوش آمدید
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Dashboard;
