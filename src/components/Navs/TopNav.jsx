@@ -36,9 +36,14 @@ const TopNav = () => {
                                             user.fullname
                                         }
                                     </NavLink>{" "}
+                                    {user.isAdmin ? (
+                                        <NavLink to="/dashboard">
+                                            / ادمین پنل
+                                        </NavLink>
+                                    ) : null}
                                     / <NavLink to="/logout">
-                                        خروج
-                                    </NavLink>
+                                    خروج
+                                </NavLink>
                                 </div>)
                                 :
                                 (<div className="signin ">

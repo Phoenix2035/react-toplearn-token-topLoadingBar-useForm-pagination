@@ -2,9 +2,9 @@ import React, {Fragment} from "react";
 import {withRouter} from "react-router-dom";
 
 import TopNav from "./../Navs/TopNav";
-import Header from "./../common/Header";
+import Header from "../Common/Header";
 import MainNav from "./../Navs/MainNav";
-import Footer from "./../common/Footer";
+import Footer from "../Common/Footer";
 import {Helmet} from "react-helmet";
 import LoadingBar from "react-redux-loading-bar";
 

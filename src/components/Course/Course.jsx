@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import ShowImage from "../common/ShowImage";
+import ShowImage from "../Common/ShowImage";
 
 const Course = ({courses}) => {
     return (

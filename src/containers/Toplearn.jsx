@@ -15,11 +15,16 @@ import {paginate} from "../utils/paginate";
 import {clearUser, setUser} from "../redux/models/user.reducer";
 import Logout from "../components/Login/Logout";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import PrivateLayout from "../components/Layouts/PrivateLayout";
+import {isEmpty} from "lodash";
+import {Redirect} from "react-router";
+import Dashboard from "../components/Admin/Dashboard";
 
 
 const TopLearn = () => {
     const dispatch = useDispatch()
     const courses = useSelector(state => state.courses)
+    const user = useSelector(state => state.user)
 
     const indexCourses = paginate(courses, 1, 8)
 
@@ -44,17 +49,33 @@ const TopLearn = () => {
     }, [])
 
     return (
-        <MainLayout>
-            <Switch>
-                <Route path="/login" component={Login}/>
-                <Route path="/logout" component={Logout}/>
-                <Route path="/register" component={Register}/>
-                <Route path="/archive" component={Archive}/>
-                <Route path="/course/:id" component={SingleCourse}/>
-                <PrivateRoute path="/user-profile" component={UserProfile}/>
-                <Route path="/" exact render={() => <Course courses={indexCourses}/>}/>
-            </Switch>
-        </MainLayout>
+        <Switch>
+            <Route path={["/dashboard"]}>
+                <PrivateLayout>
+                    <Route exaxt path="/dashboard"
+                           render={() => !isEmpty(user) && user.isAdmin ? (<Dashboard courses={courses}/>) :
+                               (<Redirect to="/"/>)}/>
+                </PrivateLayout>
+            </Route>
+
+            <Route path={["/"]}>
+                <MainLayout>
+                    <Switch>
+                        <Route path="/login" component={Login}/>
+                        <Route path="/logout" component={Logout}/>
+                        <Route path="/register" component={Register}/>
+                        <Route path="/archive" component={Archive}/>
+                        <Route path="/course/:id" component={SingleCourse}/>
+                        <PrivateRoute path="/user-profile" component={UserProfile}/>
+                        <Route path="/" exact
+                               render={() => indexCourses.length > 0 ? (<Course courses={indexCourses}/>) : (
+                                   <h2 style={{textAlign: "center", margin: "2em"}}>هیچ دوره ای جهت نمایش وجود
+                                       ندارد</h2>
+                               )}/>
+                    </Switch>
+                </MainLayout>
+            </Route>
+        </Switch>
     );
 };
 

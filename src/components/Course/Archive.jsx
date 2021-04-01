@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Pagination from "../common/Pagination";
+import Pagination from "../Common/Pagination";
 import {useSelector} from "react-redux";
 import {paginate} from "../../utils/paginate";
 import Course from "./Course";
